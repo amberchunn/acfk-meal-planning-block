@@ -9,7 +9,7 @@ function custom_post_type_recipe() {
 		'singular_name'       => __( 'Recipe', 'acfk'),
 		'menu_name'           => __( 'Recipes', 'acfk'),
 		'parent_item_colon'   => __( 'Parent Recipe', 'acfk'),
-		'all_items'           => __( 'ALl Recipes', 'acfk'),
+		'all_items'           => __( 'All Recipes', 'acfk'),
 		'view_item'           => __( 'View Recipe', 'acfk'),
 		'add_new_item'        => __( 'Add new Recipe', 'acfk'),
 		'add_new'             => __( 'Add new', 'acfk'),
