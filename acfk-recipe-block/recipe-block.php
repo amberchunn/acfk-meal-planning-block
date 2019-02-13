@@ -1,12 +1,4 @@
 <?php
-/**
- * Plugin Name: Recipe Block
- * Description: Creates a Gutenberg Block to add/store a recipe.
- * Author: fabiankaegy, amberchunn
- * Author URI: https://www.someurlhere.com
- * Text Domain: acfk
- * Version: 1.0.0
- */
 
 add_action('init', 'acfk_register_block_assets');
 
