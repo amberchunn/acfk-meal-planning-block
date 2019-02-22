@@ -9,7 +9,7 @@ function custom_post_type_recipe() {
 		'singular_name'       => __( 'Recipe', 'acfk'),
 		'menu_name'           => __( 'Recipes', 'acfk'),
 		'parent_item_colon'   => __( 'Parent Recipe', 'acfk'),
-		'all_items'           => __( 'ALl Recipes', 'acfk'),
+		'all_items'           => __( 'All Recipes', 'acfk'),
 		'view_item'           => __( 'View Recipe', 'acfk'),
 		'add_new_item'        => __( 'Add new Recipe', 'acfk'),
 		'add_new'             => __( 'Add new', 'acfk'),
@@ -24,8 +24,8 @@ function custom_post_type_recipe() {
 		'labels'              => $labels,
 		'description'         => __( 'Recipes', 'acfk'),
 		'menu_icon'           => 'dashicons-carrot',
-		'supports'            => array( 'title', 'editor', 'thumbnail', 'meta'),
-		'hierarchical'        => false,
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'meta', 'custom-fields'),
+		'hierarchical'        => true,
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
@@ -43,45 +43,42 @@ function custom_post_type_recipe() {
     	'template' => array(
             array( 'acfk/recipe-block', array( ) ),
         ),
-        'template_lock' => 'insert', // or 'insert' to allow moving
 	);
 	register_post_type( 'acfk_recipes', $args );
 
+	$args = array(
+		'type' => 'number',
+		'single' => true,
+		'show_in_rest' => true,
+	);
+	register_post_meta( 'acfk_recipes', 'acfk_prep_time', $args );
+
+	$args = array(
+		'type' => 'number',
+		'single' => true,
+		'show_in_rest' => true,
+	);
+	register_post_meta( 'acfk_recipes', 'acfk_cooking_time', $args );
+
+	$args = array(
+		'type' => 'string',
+		'single' => false,
+		'show_in_rest' => true,
+	);
+	register_post_meta( 'acfk_recipes', 'acfk_ingredients', $args );
+
+	$args = array(
+		'type' => 'number',
+		'single' => true,
+		'show_in_rest' => true,
+	);
+	register_post_meta( 'acfk_recipes', 'acfk_servings', $args );
+
+	$args = array(
+		'type' => 'number',
+		'single' => true,
+		'show_in_rest' => true,
+	);
+	register_post_meta( 'acfk_recipes', 'acfk_prep_time', $args );
+
 }
-
-
-
-$args = array(
-    'type' => 'number',
-    'single' => true,
-    'show_in_rest' => true,
-);
-register_post_meta( 'acfk_recipes', 'acfk_prep_time', $args );
-
-$args = array(
-    'type' => 'number',
-    'single' => true,
-    'show_in_rest' => true,
-);
-register_post_meta( 'acfk_recipes', 'acfk_cooking_time', $args );
-
-$args = array(
-    'type' => 'string',
-    'single' => true,
-    'show_in_rest' => true,
-);
-register_post_meta( 'acfk_recipes', 'acfk_ingredients', $args );
-
-$args = array(
-    'type' => 'number',
-    'single' => true,
-    'show_in_rest' => true,
-);
-register_post_meta( 'acfk_recipes', 'acfk_servings', $args );
-
-$args = array(
-    'type' => 'number',
-    'single' => true,
-    'show_in_rest' => true,
-);
-register_post_meta( 'acfk_recipes', 'acfk_prep_time', $args );
